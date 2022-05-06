@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextureView
+        android:id="@+id/camera_preview"
+        android:layout_width="600dp"
+        android:layout_height="800dp" />
+
+    <ImageButton
+        android:id="@+id/play"
+        android:layout_width="85dp"
+        android:layout_height="74dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="297dp"
+        android:layout_marginBottom="27dp"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <ImageButton
+        android:id="@+id/record"
+        android:layout_width="85dp"
+        android:layout_height="74dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="29dp"
+        android:layout_marginBottom="27dp"
+        app:srcCompat="@android:drawable/alert_light_frame" />
+
+    <ImageButton
+        android:id="@+id/stop"
+        android:layout_width="85dp"
+        android:layout_height="74dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="162dp"
+        android:layout_marginBottom="27dp"
+        app:srcCompat="@android:drawable/btn_radio" />
+
+    <EditText
+        android:id="@+id/edit_x"
+        android:layout_width="118dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="283dp"
+        android:layout_marginBottom="676dp"
+        android:ems="10"
+        android:hint="x"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/edit_y"
+        android:layout_width="118dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="141dp"
+        android:layout_marginBottom="676dp"
+        android:ems="10"
+        android:hint="y"
+        android:inputType="number" />
+
+    <ImageView
+        android:id="@+id/position_img"
+        android:layout_width="26dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_notification_overlay" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="23dp"
+        android:layout_marginBottom="676dp"
+        android:text="定位"
+        android:onClick="onclick"/>
+
+</RelativeLayout>
