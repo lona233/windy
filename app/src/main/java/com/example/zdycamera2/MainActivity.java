@@ -45,6 +45,11 @@ import android.widget.Toast;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -66,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     private Button button;
     private EditText x;
     private EditText y;
-    private ImageView img;
+    private ImageView img1;
     private ConstraintLayout mConstraintLayout;
     private ConstraintSet constraintSet;
 
@@ -75,6 +80,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mTevPreview = findViewById(R.id.camera_preview);
+        ImageView img = (ImageView) findViewById(R.id.img);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.file);
+//        img.setImageBitmap(bitmap);
+        img.setImageBitmap(handlerImageNegative(bitmap));
 
         mTevPreview.setSurfaceTextureListener(new TextureView.SurfaceTextureListener() {
             @Override
@@ -118,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //定位坐标
-        img=(ImageView) findViewById(R.id.position_img);
+        img1=(ImageView) findViewById(R.id.position_img);
         button=(Button) findViewById(R.id.button);
         x=(EditText) findViewById(R.id.edit_x);
         y=(EditText) findViewById(R.id.edit_y);
@@ -127,8 +136,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 float str_x = Integer.parseInt(x.getText().toString());
                 float str_y = Integer.parseInt(y.getText().toString());
-                img.setX(str_x);
-                img.setY(str_y);
+                img1.setX(str_x);
+                img1.setY(str_y);
             }
         });
     }
@@ -257,4 +266,42 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "Camera Closed");
         }
     }
+
+    public Bitmap handlerImageNegative(Bitmap bm){
+        int width = bm.getWidth();
+        int height= bm.getHeight();
+        int color;
+        int r,g,b,a;
+        Bitmap bmp=Bitmap.createBitmap(width,height,Bitmap.Config.ARGB_8888);
+        int[] oldPx=new int[width*height];
+        int[] newPx=new int[width*height];
+
+
+        bm.getPixels(oldPx,0,width,0,0,width,height);
+        for(int i =0; i < width*height;i++){
+            color = oldPx[i];
+            r = Color.red(color);
+            g = Color.green(color);
+            b = Color.blue(color);
+            a = Color.alpha(color);
+
+//            r = 255-r;
+//            g = 255-g;
+//            b = 255-b;
+            if(r==255&g==255&b==255)
+            {
+                a=0;
+            }
+            if(r!=255)
+            {
+                r=255;
+                g=0;
+                b=0;
+            }
+            newPx[i]  = Color.argb(a,r,g,b);
+        }
+        bmp.setPixels(newPx,0,width,0,0,width,height);
+        return bmp;
+    }
+
 }

@@ -7,8 +7,8 @@
 
     <TextureView
         android:id="@+id/camera_preview"
-        android:layout_width="600dp"
-        android:layout_height="800dp" />
+        android:layout_width="640dp"
+        android:layout_height="480dp" />
 
     <ImageButton
         android:id="@+id/play"
@@ -66,7 +66,7 @@
 
     <ImageView
         android:id="@+id/position_img"
-        android:layout_width="26dp"
+        android:layout_width="2dp"
         android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/ic_notification_overlay" />
 
@@ -80,5 +80,12 @@
         android:layout_marginBottom="676dp"
         android:text="定位"
         android:onClick="onclick"/>
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="640dp"
+        android:layout_height="480dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/file" />
 
 </RelativeLayout>
