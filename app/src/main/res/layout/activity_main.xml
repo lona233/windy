@@ -10,36 +10,6 @@
         android:layout_width="640dp"
         android:layout_height="480dp" />
 
-    <ImageButton
-        android:id="@+id/play"
-        android:layout_width="85dp"
-        android:layout_height="74dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="297dp"
-        android:layout_marginBottom="27dp"
-        app:srcCompat="@android:drawable/ic_media_play" />
-
-    <ImageButton
-        android:id="@+id/record"
-        android:layout_width="85dp"
-        android:layout_height="74dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="29dp"
-        android:layout_marginBottom="27dp"
-        app:srcCompat="@android:drawable/alert_light_frame" />
-
-    <ImageButton
-        android:id="@+id/stop"
-        android:layout_width="85dp"
-        android:layout_height="74dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="162dp"
-        android:layout_marginBottom="27dp"
-        app:srcCompat="@android:drawable/btn_radio" />
-
     <EditText
         android:id="@+id/edit_x"
         android:layout_width="118dp"
@@ -87,5 +57,16 @@
         android:layout_height="480dp"
         android:visibility="invisible"
         app:srcCompat="@drawable/file" />
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="132dp"
+        android:layout_marginBottom="158dp"
+        android:onClick="onclick"
+        android:text="changeimg" />
 
 </RelativeLayout>

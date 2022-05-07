@@ -68,12 +68,13 @@ public class MainActivity extends AppCompatActivity {
 
     /**'捕获'请求创建*/
     ArrayList<Surface> mSurfaceList = new ArrayList<>();
-    private Button button;
+    private Button button,btn;
     private EditText x;
     private EditText y;
     private ImageView img1;
-    private ConstraintLayout mConstraintLayout;
-    private ConstraintSet constraintSet;
+    private int count;
+//    private ConstraintLayout mConstraintLayout;
+//    private ConstraintSet constraintSet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,6 +139,19 @@ public class MainActivity extends AppCompatActivity {
                 float str_y = Integer.parseInt(y.getText().toString());
                 img1.setX(str_x);
                 img1.setY(str_y);
+            }
+        });
+
+        btn=(Button) findViewById(R.id.btn);
+        count=0;
+        int[] file_id = new int[]{R.drawable.file,R.drawable.file1};
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (count>1)  count=0;
+                Bitmap bitmap = BitmapFactory.decodeResource(getResources(),file_id[count]);
+                img.setImageBitmap(handlerImageNegative(bitmap));
+                count=count+1;
             }
         });
     }
